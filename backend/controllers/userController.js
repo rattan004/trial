@@ -34,12 +34,16 @@ const loginUser = async (req,res) => {
 //Route for user sign up
 const registerUser = async (req,res) => {
     try {
-        const {name,email,password} = req.body;
+        const {name,email,course,section,roll,password} = req.body;
 
         //Checking user already exists or not
         const exists = await userModel.findOne({email});
         if (exists){
             return res.json({success:false, message:"User Already Exists"})
+        }
+        const exists1 = await userModel.findOne({roll});
+        if (exists){
+            return res.json({success:false, message:"Roll Number Already Used"})
         }
         //Validating email format and strong password
         if (!validator.isEmail(email)) {
@@ -55,6 +59,9 @@ const registerUser = async (req,res) => {
         const newUser = new userModel({
             name,
             email,
+            course,
+            section,
+            roll,
             password:hashedPassword
         })
 
