@@ -5,6 +5,7 @@ import { assets } from '../assets/assets';
 import CartTotal from '../components/CartTotal';
 
 const Cart = () => {
+    window.scrollTo(0, 0);
 
     const { products, currency, cartItems, updateQuantity, navigate } = useContext(ShopContext);
     const [cartData, setCartData] = useState([])
