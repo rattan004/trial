@@ -5,6 +5,7 @@ import { assets, products } from '../assets/assets';
 import RelatedProducts from '../components/RelatedProducts';
 
 const Product = () => {
+    window.scrollTo(0, 0);
     const {productId} = useParams();
     const {products,currency,addToCart} = useContext(ShopContext);
     const [productData,setProductData] = useState(false);
