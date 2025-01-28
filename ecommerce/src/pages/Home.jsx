@@ -7,7 +7,6 @@ import NewsletterBox from '../components/NewsletterBox'
 
 const Home = () => {
   return (
-    window.scrollTo(0, 0);
     <div>
       <Hero/>
       <LatestCollection/>
