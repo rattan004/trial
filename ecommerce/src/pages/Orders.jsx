@@ -5,6 +5,7 @@ import axios from 'axios';
 
 
 const Orders = () => {
+  window.scrollTo(0, 0);
   const { backendUrl, token, currency } = useContext(ShopContext);
   const [orderData, setOrderData] = useState([])
   const loadOrderData = async () => {
