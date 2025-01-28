@@ -8,13 +8,16 @@ const Login = () => {
   const {token,setToken,navigate, backendUrl} = useContext(ShopContext);
   const [name,setName] = useState('');
   const [password,setPassword] = useState('');
-  const [email,setEmail] = useState('')
+  const [email,setEmail] = useState('');
+  const [course,setCourse] = useState('');
+  const [section,setSection] = useState('');
+  const [roll,setRoll] = useState('');
 
   const onSubmmitHandler = async (e) => {
     e.preventDefault();
     try {
       if (currentState === 'Sign Up') {
-        const response = await axios.post(backendUrl+'/api/user/register',{name,email,password})
+        const response = await axios.post(backendUrl+'/api/user/register',{name,email,course,section,roll,password})
         if(response.data.success){
           setToken(response.data.token)
           localStorage.setItem("token",response.data.token)
@@ -58,13 +61,39 @@ const Login = () => {
 
       <div className="w-full px-3 py-2 flex flex-col gap-4">
         {currentState === 'Sign Up' ? (
+          <>
           <input
             onChange={(e)=>setName(e.target.value)} value={name}
             type="text"
             className="w-Full px-3 py-2 border border-gray-880"
             placeholder="Name"
             required
-          />)
+          />
+          <select  onChange={(e)=>setCourse(e.target.value)} className='border w-full border-gray-80  px-3 py-3'>
+              <option value="" disabled selected hidden>Choose Course</option>
+              <option value="B.Tech">B.Tech</option>
+              <option value="BCA">BCA</option>
+              <option value="MCA">MCA</option>
+              <option value="BBA">BBA</option>
+              <option value="B.Pharma">B.Pharma</option>
+              <option value="BHMCT">BHMCT</option>
+          </select>
+          <select  onChange={(e)=>setSection(e.target.value)} className='border w-full border-gray-80  px-3 py-3'>
+              <option value="" disabled selected hidden>Choose Section</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+          </select>
+          <input
+            onChange={(e)=>setRoll(e.target.value)} value={roll}
+            type="text"
+            className="w-Full px-3 py-2 border border-gray-880"
+            placeholder="University Roll Number"
+            required
+          />
+          </>)
+          
 
          : null}
 
@@ -84,7 +113,7 @@ const Login = () => {
         />
 
         <div className="w-full flex justify-between text-sm mt-[-8px]">
-          <p className=" cursor-pointer">Forgot your password?</p>
+          <p className=" cursor-pointer"></p>
           {currentState === 'Login' ? (
             <p
               onClick={() => setCurrentState('Sign Up')}
