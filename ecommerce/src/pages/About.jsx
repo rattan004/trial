@@ -5,6 +5,7 @@ import Title from '../components/Title';
 
 const About = () => {
   return (
+    window.scrollTo(0, 0);
     <div>
       <div className="text-2xl text-center pt-8 border-t">
         <Title text1={'ABOUT'} text2={' US'} />
