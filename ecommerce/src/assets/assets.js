@@ -1,5 +1,6 @@
 import logo from './logo.png'
 import search_icon from './search_icon.png'
+import p_img1 from './p_img1.jpg'
 import profile_icon from './profile_icon.png'
 import cart_icon from './cart_icon.png'
 import menu_icon from './menu_icon.png'
@@ -17,9 +18,21 @@ import stripe_logo from './stripe_logo.png'
 import razorpay_logo from './razorpay_logo.png'
 import about from './about.png'
 import contact from './contact.jpg'
+import p1_1 from './p1_1.jpg'
+import p1_2 from './p1_2.jpg'
+import p1_3 from './p1_3.jpg'
+import p1_4 from './p1_4.jpg'
+import p2_1 from './p2_1.jpg'
+import p2_2 from './p2_2.jpg'
+import p3_1 from './p3_1.jpg'
+import p3_2 from './p3_2.jpg'
+import p4 from './p3.webp'
+import p5 from './p5.webp'
+import p6 from './p6.webp'
 import home1 from './home1.webp'
 import minus from './minus.png'
 import plus from './plus.png'
+
 
 export const assets={
     minus,
