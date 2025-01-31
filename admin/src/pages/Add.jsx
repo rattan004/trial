@@ -16,7 +16,7 @@ const Add = ({token}) => {
     const [price,setPrice] = useState('');
     const [category,setCategory] = useState('Writing');
     const [bestseller,setBestseller] = useState(false);
-    const [sizes,setSizes] = useState([]);
+    const [sizes,setSizes] = useState([1]);
 
     const onSubmitHandler = async (e) => {
         e.preventDefault();
@@ -105,20 +105,7 @@ const Add = ({token}) => {
                 <input onChange={(e)=>setPrice(e.target.value)} value={price} className='w-full px-3 py-2 sm:w-[120px]' type="Number" placeholder='25' />
             </div>
         </div>
-        <div>
-            <p className='mb-2'>Product Sizes</p>
-            <div className='flex gap-3'>
-                <div onClick={()=>setSizes(prev => prev.includes(1) ? prev.filter(item => item !== 1) : [...prev,1])}>
-                    <p className={`${sizes.includes(1) ? "bg-pink-100" : "bg-slate-200" } px-3 py-1 cursor-pointer`}>1</p>
-                </div>
-                <div onClick={()=>setSizes(prev => prev.includes(5) ? prev.filter(item => item !== 5) : [...prev,5])}>
-                    <p className={`${sizes.includes(5) ? "bg-pink-100" : "bg-slate-200" } px-3 py-1 cursor-pointer`}>5</p>
-                </div>
-                <div onClick={()=>setSizes(prev => prev.includes(10) ? prev.filter(item => item !== 10) : [...prev,10])}>
-                    <p className={`${sizes.includes(10) ? "bg-pink-100" : "bg-slate-200" } px-3 py-1 cursor-pointer`}>10</p>
-                </div>
-            </div>
-        </div>
+        
         <div className='flex gap-2 mt-2'>
             <input onChange={()=>setBestseller(prev => !prev)} checked={bestseller} type="checkbox" id="bestseller" />
             <label className='cursor-pointer' htmlFor="bestseller">Add to Bestseller</label>
