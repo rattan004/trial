@@ -5,6 +5,7 @@ const userSchema = new mongoose.Schema({
     email:{type:String, required:true,unique:true},
     course:{type:String, required:true},
     section:{type:String, required:true},
+    semester:{type:Number, required:true},
     roll:{type:String, required:true,unique:true},
     password:{type:String, required:true},
     cartData:{type:Object, default: {}}
