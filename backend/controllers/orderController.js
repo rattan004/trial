@@ -46,16 +46,6 @@ const placeOrderStripe = async (req, res) => {
             },
             quantity: item.quantity
         }))
-        line_items.push({
-            price_data: {
-                currency: currency,
-                product_data: {
-                    name: 'Delivery Charges'
-                },
-                unit_amount: deliveryCharge * 100
-            },
-            quantity: 1
-        })
         const session = await stripe.checkout.sessions.create({
             success_url: `${origin}/verify?success=true&orderId=${newOrder._id}`,
             cancel_url: `${origin}/verify?success=false&orderId=${newOrder._id}`,
