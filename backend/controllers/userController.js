@@ -31,10 +31,16 @@ const loginUser = async (req,res) => {
     }
 }
 
+const updateUserDetails = async (req,res) => {
+    const {userId,name,email,roll,course,section} = req.body
+    const user = await userModel.findByIdAndUpdate(userId,{name,email,course,section,roll})
+    res.json({success:true,message:"Updated"})
+}
+
 //Route for user sign up
 const registerUser = async (req,res) => {
     try {
-        const {name,email,course,section,roll,password} = req.body;
+        const {name,email,course,semester,section,roll,password} = req.body;
 
         //Checking user already exists or not
         const exists = await userModel.findOne({email});
@@ -60,6 +66,7 @@ const registerUser = async (req,res) => {
             name,
             email,
             course,
+            semester,
             section,
             roll,
             password:hashedPassword
@@ -75,6 +82,16 @@ const registerUser = async (req,res) => {
     } catch (error) {
         console.log(error);
         res.json({success:false , message:error.message})
+    }
+}
+
+const userDetails = async(req,res) => {
+    try {
+        const {userId} = req.body
+        const user = await userModel.findById(userId)
+        res.json({success:true,user})
+    } catch (error) {
+        
     }
 }
 
@@ -95,4 +112,4 @@ const adminLogin = async (req,res) => {
     }
 }
 
-export {loginUser,registerUser,adminLogin};
+export {loginUser,registerUser,adminLogin,userDetails,updateUserDetails};
