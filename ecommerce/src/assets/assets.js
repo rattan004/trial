@@ -32,6 +32,7 @@ import p6 from './p6.webp'
 import home1 from './home1.webp'
 import minus from './minus.png'
 import plus from './plus.png'
+import edit from './edit.png'
 
 
 export const assets={
@@ -57,7 +58,7 @@ export const assets={
     razorpay_logo,
     about,
     contact,
-    p1_2,p1_3,p1_4,p1_1,p2_1,p2_2,p4,p5,p6,home1
+    p1_2,p1_3,p1_4,p1_1,p2_1,p2_2,p4,p5,p6,home1,edit
 }
 export const products = [
     {
