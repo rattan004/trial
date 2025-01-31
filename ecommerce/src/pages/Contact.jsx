@@ -42,6 +42,36 @@ const Contact = () => {
 
         </div>
       </div>
+      <div>
+        <div className='text-center'>
+        <p className='text-2xl font-medium text-gray-800'>Frequently Asked Questions</p>
+        </div>
+        <p className='text-semibold mt-3'>
+        Q: How do I place an order?
+        </p>
+        <p className='text-gray-600 mt-3'>A: Browse our products, add desired items to your cart, proceed to checkout, enter your payment details, and confirm your order.</p>
+        <div className='border'></div>
+        <p className='text-semibold mt-3'>
+        Q: What payment methods do you accept?
+        </p>
+        <p className='text-gray-600 mt-3'>A: Currently we only accept Stripe and Cash, more options will be added with time.</p>
+        <div className='border'></div>
+        <p className='text-semibold mt-3'>
+        Q: What types of stationery products do you offer?
+        </p>
+        <p className='text-gray-600 mt-3'>A: We offer a wide range of stationery products, including writing supplies, notebooks, practicals, assignment sheets, stick files and vrious other products.</p>
+        <div className='border'></div>
+        <p className='text-semibold mt-3'>
+        Q: What is your return policy?
+        </p>
+        <p className='text-gray-600 mt-3'>We accept returns within 7 days of delivery for unused and unopened products in their original packaging.</p>
+        <div className='border'></div>
+        <p className='text-semibold mt-3'>
+        Q: Are the product images accurate?
+        </p>
+        <p className='text-gray-600 mt-3'>A: We strive to provide accurate product images, but slight variations in color or appearance may occur due to photography and monitor settings.</p>
+        <div className='border'></div>
+      </div>
       
     </div>
   );
