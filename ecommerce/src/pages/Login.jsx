@@ -12,12 +12,13 @@ const Login = () => {
   const [course,setCourse] = useState('');
   const [section,setSection] = useState('');
   const [roll,setRoll] = useState('');
+  const [semester,setSemester] = useState();
 
   const onSubmmitHandler = async (e) => {
     e.preventDefault();
     try {
       if (currentState === 'Sign Up') {
-        const response = await axios.post(backendUrl+'/api/user/register',{name,email,course,section,roll,password})
+        const response = await axios.post(backendUrl+'/api/user/register',{name,email,course,semester,section,roll,password})
         if(response.data.success){
           setToken(response.data.token)
           localStorage.setItem("token",response.data.token)
@@ -78,6 +79,7 @@ const Login = () => {
               <option value="B.Pharma">B.Pharma</option>
               <option value="BHMCT">BHMCT</option>
           </select>
+          <input onChange={(e)=>setSemester(e.target.value)} value={semester} placeholder='Semester' type="Number" max={8} min={1} className='w-Full px-3 py-2 border border-gray-880' />
           <select  onChange={(e)=>setSection(e.target.value)} className='border w-full border-gray-80  px-3 py-3'>
               <option value="" disabled selected hidden>Choose Section</option>
               <option value="A">A</option>
