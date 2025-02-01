@@ -17,6 +17,7 @@ const Add = ({token}) => {
     const [category,setCategory] = useState('Writing');
     const [bestseller,setBestseller] = useState(false);
     const [sizes,setSizes] = useState([1]);
+    const [stock,setStock] = useState(0);
 
     const onSubmitHandler = async (e) => {
         e.preventDefault();
@@ -27,6 +28,7 @@ const Add = ({token}) => {
             formData.append("price",price)
             formData.append("category",category)
             formData.append("sizes",JSON.stringify(sizes))
+            formData.append("stock",stock)
             formData.append("bestseller",bestseller)
             image1 && formData.append("image1",image1)
             image2 && formData.append("image2",image2)
@@ -94,6 +96,7 @@ const Add = ({token}) => {
             <div>
                 <p className='mb-2'>Product Category</p>
                 <select onChange={(e)=>setCategory(e.target.value)} className='w-full px-3 py-2'>
+                    <option  value=""></option>
                     <option value="Notebook">Notebook</option>
                     <option value="Writing">Writing</option>
                     <option value="EngSupplies">Engineering Supplies</option>
@@ -102,7 +105,11 @@ const Add = ({token}) => {
             </div>
             <div>
                 <p className='mb-2'>Product Price</p>
-                <input onChange={(e)=>setPrice(e.target.value)} value={price} className='w-full px-3 py-2 sm:w-[120px]' type="Number" placeholder='25' />
+                <input onChange={(e)=>setPrice(e.target.value)} value={price} className='w-full px-3 py-2 sm:w-[120px]' type="Number" placeholder='' />
+            </div>
+            <div>
+                <p className='mb-2'>Stock</p>
+                <input onChange={(e)=>setStock(e.target.value)} value={stock} className='w-full px-3 py-2 sm:w-[120px]' type="Number" placeholder='' />
             </div>
         </div>
         
