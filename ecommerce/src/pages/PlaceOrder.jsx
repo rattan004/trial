@@ -13,11 +13,6 @@ const PlaceOrder = () => {
     firstName: '',
     lastName: '',
     email: '',
-    street: '',
-    city: '',
-    state: '',
-    zipcode: '',
-    country: '',
     phone: ''
   });
 
@@ -90,23 +85,14 @@ const PlaceOrder = () => {
 
       <div className="flex flex-col gap-4 w-full sm:max-w-[480px]">
         <div className="text-xl sm:text-2xl my-3 ">
-          <Title text1={'DELIVERY'} text2={' INFORMATION'} />
+          <Title text1={'PICKUP'} text2={' INFORMATION'} />
         </div>
-        <div className="flex flex-col sm:flex-row  gap-3">
+        <p>"Orders are typically ready for pickup within 2 hours. You can pick up your order from the college stationery at your convenience anytime after that. Please remember to present your college ID card to the store manager."</p>
+        <div className="flex flex-col sm:flex-row  gap-3 mt-3">
           <input required onChange={onChangeHandler} name='firstName' value={formData.firstName} type="text" placeholder="First Name" className="border  border-gray-300 rounded py-1.5 px-3.5 w-full" />
           <input required onChange={onChangeHandler} name='lastName' value={formData.lastName} type="text" placeholder="Last Name" className="border  border-gray-300 rounded py-1.5 px-3.5 w-full" />
         </div>
         <input required onChange={onChangeHandler} name='email' value={formData.email} type="email" placeholder="Email Address" className="border  border-gray-300 rounded py-1.5 px-3.5 w-full" />
-        <input required onChange={onChangeHandler} name='street' value={formData.street} type="text" placeholder="Street" className="border  border-gray-300 rounded py-1.5 px-3.5 w-full" />
-        <div className="flex flex-col sm:flex-row  gap-3">
-          <input required onChange={onChangeHandler} name='city' value={formData.city} type="text" placeholder="City" className="border  border-gray-300 rounded py-1.5 px-3.5 w-full" />
-          <input required onChange={onChangeHandler} name='state' value={formData.state} type="text" placeholder="State" className="border  border-gray-300 rounded py-1.5 px-3.5 w-full" />
-        </div>
-        <div className="flex flex-col sm:flex-row  gap-3">
-          <input required onChange={onChangeHandler} name='zipcode' value={formData.zipcode} type="text" placeholder="Zipcode" className="border  border-gray-300 rounded py-1.5 px-3.5 w-full" />
-          <input required onChange={onChangeHandler} name='country' value={formData.country} type="text" placeholder="Country" className="border  border-gray-300 rounded py-1.5 px-3.5 w-full"
-          />
-        </div>
         <input required onChange={onChangeHandler} name='phone' value={formData.phone} type="number" placeholder="Phone " className="border  border-gray-300 rounded py-1.5 px-3.5 w-full" />
       </div>
 
