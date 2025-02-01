@@ -4,7 +4,6 @@ import Title from '../components/Title';
 
 
 const Contact = () => {
-  window.scrollTo(0, 0);
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -26,15 +25,16 @@ const Contact = () => {
         />
 
         <div className="flex flex-col justify-center items-start gap-4">
-          <p className="font-semibold text-altext-gray-600">Our Store</p>
+          <p className="font-semibold text-altext-gray-600">For Printout And Support</p>
           <p className="text-gray-500">
             Punjab College of Technical Education
             <br />
             Ludhiana, Punjab
           </p>
+          <p className="font-semibold text-altext-gray-600">Send Files Here</p>
 
           <p className="text-gray-800">
-            Tel: <span className="text-gray-500">+91 93163 39000</span>
+            Whatsapp: <span className="text-gray-500">+91 93163 39000</span>
           </p>
           <p className=" text-gray-800">
             Email: <span className="text-gray-500">gearup@pcte.edu</span>
