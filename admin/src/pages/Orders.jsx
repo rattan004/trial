@@ -60,10 +60,6 @@ const Orders = ({ token }) => {
                 })}
               </div>
               <p className='mt-3 mb-2 font-medium'>{order.address.firstName + " " + order.address.lastName}</p>
-              <div>
-                <p>{order.address.street + ", "}</p>
-                <p>{order.address.city + ", " + order.address.state + ", " + order.address.country + ", " + order.address.zipcode}</p>
-              </div>
               <p>{order.address.phone}</p>
             </div>
             <div>
@@ -76,9 +72,8 @@ const Orders = ({ token }) => {
             <select onChange={(event)=>statusHandler(event,order._id)} value={order.status} className='p-2 font-semibold'>
               <option value="Order Placed">Order Placed</option>
               <option value="Packing">Packing</option>
-              <option value="Shipped">Shipped</option>
-              <option value="Out for delivery">Out for delivery</option>
-              <option value="Delivered">Delivered</option>
+              <option value="Ready">Ready For Pickup</option>
+              <option value="Picked">Picked Up</option>
             </select>
           </div>
         ))
