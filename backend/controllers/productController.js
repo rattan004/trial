@@ -4,7 +4,7 @@ import productModel from "../models/productModel.js"
 //ADD PRODUCT
 const addProduct = async (req,res) => {
     try {
-        const {name,description,price,category,sizes,bestseller}=req.body
+        const {name,description,price,category,sizes,bestseller,stock}=req.body
         const image1 = req.files.image1 && req.files.image1[0]
         const image2 = req.files.image2 && req.files.image2[0]
         const image3 = req.files.image3 && req.files.image3[0]
@@ -19,7 +19,7 @@ const addProduct = async (req,res) => {
         )
 
         const productData = {
-            name,description,category,price:Number(price),bestseller:bestseller === "true" ? true : false,
+            name,description,category,stock,price:Number(price),bestseller:bestseller === "true" ? true : false,
             sizes:JSON.parse(sizes), image: imagesUrl, date: Date.now()
         }
         console.log(productData);
@@ -28,6 +28,18 @@ const addProduct = async (req,res) => {
         await product.save()
         
         res.json({success:true,message:"Product Added"})
+    } catch (error) {
+        res.json({success:false, message:error.message})
+        console.log(error)
+    }
+}
+
+const modifyStock = async(req,res) => {
+    try {
+        console.log(req)
+        await productModel.findByIdAndUpdate(req.body._id,{stock:req.body.stock})
+        res.json({success:true,message:"Stock Updated"})
+        
     } catch (error) {
         res.json({success:false, message:error.message})
         console.log(error)
@@ -67,4 +79,4 @@ const singleProduct = async (req,res) => {
     }
 }
 
-export {addProduct,listProducts,removeProduct,singleProduct}
+export {addProduct,listProducts,removeProduct,singleProduct,modifyStock}
