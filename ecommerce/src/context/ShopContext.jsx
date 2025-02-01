@@ -61,13 +61,16 @@ const ShopContextProvider = (props) => {
         return totalCount;
     }
 
-    const updateQuantity = async (itemId,size,quantity) => {
+    const updateQuantity = async (itemId,size,quantity,change=null) => {
         let cartData = structuredClone(cartItems);
         cartData[itemId][size]=quantity;
         setCartItems(cartData);
         if(token){
           try {
-            await axios.post(backendUrl+'/api/cart/update',{itemId,size,quantity},{headers:{token}})
+            const response = await axios.post(backendUrl+'/api/cart/update',{itemId,size,quantity,change},{headers:{token}})
+            if (!response.success){
+              toast.error(response.message)
+            }
           } catch (error) {
             console.log(error);
             toast.error(error.message)
@@ -75,6 +78,8 @@ const ShopContextProvider = (props) => {
           }
         }
     }
+
+    
 
     const getCartAmount = () => {
         let totalAmount = 0;
