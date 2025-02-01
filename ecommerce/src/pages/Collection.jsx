@@ -5,7 +5,6 @@ import Title from '../components/Title'
 import ProductItem from '../components/ProductItem'
 
 const Collection = () => {
-  window.scrollTo(0, 0);
   const {products,search,showSearch} = useContext(ShopContext);
   const [showFilter,setShowFilter] = useState(false);
   const [filterProducts,setFilterProducts] = useState([]);
@@ -72,16 +71,16 @@ const Collection = () => {
           <p className='mb-3 text-sm font-medium'>CATEGORIES</p>
           <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
             <p className='flex gap-2'>
-              <input type="checkbox" className='w-3' value={'Notebook'} onChange={toggleCategory} />Notebook
+              <input type="checkbox" className='w-3' value={'Writing'} onChange={toggleCategory} />Writing Essentials
             </p>
             <p className='flex gap-2'>
-              <input type="checkbox" className='w-3' value={'Writing'} onChange={toggleCategory}  />Writing
+              <input type="checkbox" className='w-3' value={'Organizational'} onChange={toggleCategory}  />Organizational Supplies
             </p>
             <p className='flex gap-2'>
-              <input type="checkbox" className='w-3' value={'EngSupplies'} onChange={toggleCategory} />Engineering Supplies
+              <input type="checkbox" className='w-3' value={'Office'} onChange={toggleCategory} />Office Supplies
             </p>
             <p className='flex gap-2'>
-              <input type="checkbox" className='w-3' value={'Calculator'} onChange={toggleCategory} />Calculator
+              <input type="checkbox" className='w-3' value={'Crafting'} onChange={toggleCategory} />Art and Craft Supplies
             </p>
           </div>
         </div>
